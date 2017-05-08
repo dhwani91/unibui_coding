@@ -1,0 +1,1 @@
+{"version":3,"sources":["config.js"],"names":[],"mappings":";;AAAA,OAAO,OAAP,GAAe;AACX,WAAM,sBADK;AAEX,eAAY,0CAFD;AAGX,aAAQ;AAHG,CAAf","file":"config-compiled.js","sourcesContent":["module.exports={\n    awsId:'AKIAIQWF3LJI2GGVSVMQ',\n    awsSecret : '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',\n    assocId:'unibui-20'\n}\n"]}
