@@ -3,14 +3,12 @@ import {Link} from 'react-router'
 class Desc extends Component{
 constructor(props){
     super(props)
-    console.log(this.props)
 }
 
 render(){
     let imgsrc=this.props.desc[0].LargeImage[0].URL[0];
      let author=this.props.desc[0].ItemAttributes[0].Author[0];
     let title=this.props.desc[0].ItemAttributes[0].Title[0];
-    // let price=this.props.desc[0].ItemAttributes[0].FormattedPrice[0];
     let pages=this.props.desc[0].ItemAttributes[0].NumberOfPages[0];
    let label= this.props.desc[0].ItemAttributes[0].Label[0];
     let language= this.props.desc[0].ItemAttributes[0].Languages[0].Language[0].Name[0];

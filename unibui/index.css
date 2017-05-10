@@ -225,3 +225,6 @@ div#columns:hover figure:hover {
 .center{
     text-align: center;
 }
+.loadMore{
+    margin:0px 50px 20px 0px;
+}

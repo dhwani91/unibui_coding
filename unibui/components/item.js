@@ -3,17 +3,16 @@
  */
 import React,{Component} from 'react';
 import ItemsActions from '../flux/actions/ItemsActions';
-import ItemListStore from '../flux/stores/ItemListStore';
 class Item extends Component{
     constructor(props){
         super(props)
     }
     render() {
-        let items=<figure  className="grid-item" onClick={ItemsActions.fetchItem.bind(
+        let items=<figure className="grid-item" onClick={ItemsActions.fetchItem.bind(
             null,
-            this.props.itemId)} >
+            this.props.itemId)}>
             <img src={this.props.image}/>
-            <figcaption>{this.props.caption}</figcaption>
+            <figcaption>{this.props.title}</figcaption>
 
         </figure>
 return(
@@ -24,7 +23,8 @@ return(
 }
 Item.propTypes = {
     image: React.PropTypes.string.isRequired,
-    caption: React.PropTypes.string.isRequired
+    title: React.PropTypes.string.isRequired,
+    itemId:React.PropTypes.number.isRequired
 }
 
 export default Item;

@@ -21,11 +21,31 @@ app.use(function(req, res, next) {
     next();
 });
 
+// app.get('/items',function(req, res, next){
+//     client.itemSearch({
+//         SearchIndex: 'Books',
+//         Keywords: 'Novel',
+//         ItemPage:'1',
+//         responseGroup: 'ItemAttributes,Offers,Images,EditorialReview,OfferFull',
+//         IncludeReviewsSummary:'true'
+//     }, function(err, results, response) {
+//         if (err) {
+//             console.log(err);
+//             res.send(err);
+//         } else {
+//             res.send(results);
+//         }
+//
+// });
+//
+//
+// });
 app.get('/items',function(req, res, next){
+    let page=req.query.page
     client.itemSearch({
         SearchIndex: 'Books',
         Keywords: 'Novel',
-        ItemPage:'1',
+        ItemPage:page,
         responseGroup: 'ItemAttributes,Offers,Images,EditorialReview,OfferFull',
         IncludeReviewsSummary:'true'
     }, function(err, results, response) {
@@ -36,7 +56,8 @@ app.get('/items',function(req, res, next){
             res.send(results);
         }
 
-});
+    });
+
 
 });
 
@@ -58,4 +79,5 @@ app.get('/items/:id',function(req,res,next){
     });
 })
 app.listen(app.get('port'), function() {
+    console.log('server starts on port 3000')
 });

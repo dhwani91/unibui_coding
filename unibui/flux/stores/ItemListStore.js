@@ -9,10 +9,11 @@ class ItemListStore extends  ReduceStore{
     getInitialState() {
         return [];
     }
+
     reduce(state, action) {
         switch(action.type) {
             case constants.FETCH_ITEMLIST_SUCCESS:
-                return action.payload.response;
+               return update(state, {$push: [action.payload.response]});
             default:
                 return state;
         }

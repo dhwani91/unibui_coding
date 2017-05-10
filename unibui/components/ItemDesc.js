@@ -1,7 +1,6 @@
 
 import React,{Component} from 'react'
 import {Container} from 'flux/utils';
-// import ItemAction from '../flux/actions/ItemActions';
 import ItemDetailStore from '../flux/stores/ItemDetailStore';
 
 import Details from './Desc.js'

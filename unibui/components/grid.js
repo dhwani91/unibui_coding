@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router'
 import Item from './item.js';
-import ItemActionCreator from '../flux/actions/ItemsActions';
+import ItemsActions from '../flux/actions/ItemsActions';
 
 
 class Grid extends Component{
@@ -10,19 +10,20 @@ constructor(props){
 }
     render() {
         let childElements = this.props.items.map((item)=> {
-            var imageUrl=item.LargeImage[0].URL[0];
-            var title=item.ItemAttributes[0].Title;
-            var itemId=item.ASIN[0];
-            return (
-                <Link to={'/items/'+itemId}>
-                <Item caption={title} image={imageUrl}  itemId={itemId}  />
-                </Link>
+        let imageUrl,title,itemId
+           let child= item.map((i)=>{
+                imageUrl=i.LargeImage[0].URL[0];
+                 title=i.ItemAttributes[0].Title[0];
+                 itemId=i.ASIN[0];
+                return(<Item title={title} image={imageUrl} itemId={itemId}/>)
 
-            );
+            });
+            return(  <Link to={'/items/'+itemId}><div>{child}</div></Link>)
         });
         return (
 
             <div id="columns">
+
                 {childElements}
 
             </div>

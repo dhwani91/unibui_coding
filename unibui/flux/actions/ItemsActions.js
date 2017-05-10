@@ -3,12 +3,13 @@ import ApiActions from './ApiActions.js';
 import constants from '../Constants';
 
 let ItemActionCreator = {
-    fetchItemList() {
-        AppDispatcher.dispatchAsync(ApiActions.fetchItemList(), {
+    fetchItemList(pageNo) {
+        var page=pageNo
+        AppDispatcher.dispatchAsync(ApiActions.fetchItemList(page), {
             request: constants.FETCH_ITEMLIST,
             success: constants.FETCH_ITEMLIST_SUCCESS,
             failure: constants.FETCH_ITEMLIST_FAILURE
-        });
+        },{page});
     },
 
     fetchItem(itemId) {
