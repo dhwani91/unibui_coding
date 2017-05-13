@@ -21,32 +21,14 @@ app.use(function(req, res, next) {
     next();
 });
 
-// app.get('/items',function(req, res, next){
-//     client.itemSearch({
-//         SearchIndex: 'Books',
-//         Keywords: 'Novel',
-//         ItemPage:'1',
-//         responseGroup: 'ItemAttributes,Offers,Images,EditorialReview,OfferFull',
-//         IncludeReviewsSummary:'true'
-//     }, function(err, results, response) {
-//         if (err) {
-//             console.log(err);
-//             res.send(err);
-//         } else {
-//             res.send(results);
-//         }
-//
-// });
-//
-//
-// });
 app.get('/items',function(req, res, next){
-    let page=req.query.page
+    let page=req.query.page;
+    let category=req.query.category;
     client.itemSearch({
         SearchIndex: 'Books',
-        Keywords: 'Novel',
+        Keywords:category,
         ItemPage:page,
-        responseGroup: 'ItemAttributes,Offers,Images,EditorialReview,OfferFull',
+        responseGroup:'ItemAttributes,Offers,Images,EditorialReview,OfferFull',
         IncludeReviewsSummary:'true'
     }, function(err, results, response) {
         if (err) {

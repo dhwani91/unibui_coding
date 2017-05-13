@@ -3,6 +3,7 @@ import {Link} from 'react-router'
 class Desc extends Component{
 constructor(props){
     super(props)
+
 }
 
 render(){
