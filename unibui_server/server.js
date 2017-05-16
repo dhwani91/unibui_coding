@@ -50,7 +50,7 @@ app.get('/items/:id',function(req,res,next){
     var id = req.params.id;
     client.itemLookup({
         itemId:id,
-        responseGroup:'ItemAttributes,Offers,Images',
+        responseGroup:'ItemAttributes,Offers,Images,Large',
         includeReviewsSummary: false
     }, function(err, results, response) {
         if (err) {

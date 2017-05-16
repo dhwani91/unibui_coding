@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component,PropTypes} from 'react';
 import {Link} from 'react-router'
 import Item from './item.js';
 import ItemsActions from '../flux/actions/ItemsActions';
@@ -15,7 +15,7 @@ constructor(props){
                 imageUrl=i.LargeImage[0].URL[0];
                  title=i.ItemAttributes[0].Title[0];
                  itemId=i.ASIN[0];
-                return(<Item title={title} image={imageUrl} itemId={itemId}/>)
+                return(<Item title={title} image={imageUrl} itemId={itemId} />)
 
             });
             return(  <Link to={'/items/'+itemId}><div>{child}</div></Link>)
@@ -31,3 +31,7 @@ constructor(props){
     }
 }
 export default Grid;
+
+Grid.PropTypes={
+    items:PropTypes.arrayOf(PropTypes.object)
+}

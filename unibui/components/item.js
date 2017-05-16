@@ -1,7 +1,7 @@
 /**
  * Created by dhwani on 5/2/17.
  */
-import React,{Component} from 'react';
+import React,{Component,PropTypes} from 'react';
 import ItemsActions from '../flux/actions/ItemsActions';
 class Item extends Component{
     constructor(props){
@@ -22,9 +22,9 @@ return(
     }
 }
 Item.propTypes = {
-    image: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
-    itemId:React.PropTypes.number.isRequired
+    image: PropTypes.string,
+    title: PropTypes.string,
+    itemId:PropTypes.string
 }
 
 export default Item;

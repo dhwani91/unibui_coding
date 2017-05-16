@@ -15,6 +15,10 @@ render(){
     let language= this.props.desc[0].ItemAttributes[0].Languages[0].Language[0].Name[0];
     let publisher= this.props.desc[0].ItemAttributes[0].Publisher[0];
     let PublicationDate=this.props.desc[0].ItemAttributes[0].PublicationDate[0];
+    let CustomerReviews=this.props.desc[0].CustomerReviews[0].IFrameURL[0];
+    let EditorialReviews=this.props.desc[0].EditorialReviews[0].EditorialReview[0].Content[0];
+    let review=EditorialReviews.split('<p>').join('').split('</p>').join('').split('<b>').join('').split('</b>').join('').split('<em>').join('').split('</em>').join('')
+    // let hasReview=this.props.desc[0].CustomerReviews[0].HasReviews[0];
 
   return(<div className=" top-40 shop-product" >
       <div  id="product-section container">
@@ -38,6 +42,8 @@ render(){
                           </ul>
 
                       </div>
+                  <p>{review}</p>
+                  {/*<iframe src={CustomerReviews}></iframe>*/}
                       </div>
                   </div>
                   </div>

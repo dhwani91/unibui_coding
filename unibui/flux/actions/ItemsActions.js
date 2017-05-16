@@ -20,6 +20,11 @@ let ItemActionCreator = {
             failure: constants.FETCH_ITEM_FAILURE
         }, {itemId})
 
-    }
+    },
+
+    removePrev(category){
+        AppDispatcher.dispatchAsync()
+
+}
 }
 export default ItemActionCreator;

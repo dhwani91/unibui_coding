@@ -26,29 +26,35 @@ class App extends Component{
                 items:ItemListStore.getState()
             }
     }
+    componentWillReceiveProps(nextProp,nextState){
+
+    }
     componentDidMount() {
         let defaultCategory='Novel';
          ItemActions.fetchItemList(1,defaultCategory);
     }
     _loadMore() {
-        this.setState({count: this.state.count + 1});
         var page=this.state.count;
-        ItemActions.fetchItemList(page,this.state.category);
+        this.setState({count:this.state.count+1});
+        ItemActions.fetchItemList(this.state.count,this.state.category);
 
     }
 
     handleState(categoryName) {
         var page=this.state.count;
         if(categoryName!=this.state.category) {
-            console.log("categoryName", categoryName);
-            console.log("this ategory", this.state.category)
-            console.log("Remove", this.state.items)
+            this.setState({items:''})
+            var array = this.state.items;
+            array.splice(0, page);
+            this.setState({items: array });
             this.setState({category: categoryName});
-            ItemActions.fetchItemList(page, categoryName);
+            ItemActions.fetchItemList(1, categoryName);
         }
 
         else{
-            ItemActions.fetchItemList(page,this.state.category);
+            this.setState({count:page+1})
+            ItemActions.fetchItemList(page+1,this.state.category);
+
         }
 
     }
